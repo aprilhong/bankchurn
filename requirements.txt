@@ -1,7 +1,6 @@
 numpy>=1.25.2
 pandas>=2.2.1
 matplotlib==3.7.3
-matplotlib-inline==0.16
 seaborn>=0.12.2
 scipy>=1.11.4
 scikit-learn>=1.4.2
