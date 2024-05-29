@@ -4,7 +4,7 @@
   
   - [data](https://github.com/aprilhong/bankchurn/tree/main/data) : folder containing all data files
     - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/code/mathchi/churn-problem-for-bank-customer)
-  - [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model saved with pickle
+  - [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model files
     - **rf_cv_model.pickle**, **xgb_cv_model.pickle** 
     - **model_results_table.csv** : summary table of scoring metrics from all models
     - **xgb_decision_tree.png** : decision tree output from xgb prediction.
