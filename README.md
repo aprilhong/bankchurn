@@ -1,9 +1,12 @@
 # File Descriptions
-- data: folder containing all data files
-  - [churn_data](https://github.com/aprilhong/bankchurn/blob/main/data/churn_data.csv): raw dataset from [Kaggle](https://www.kaggle.com/code/mathchi/churn-problem-for-bank-customer)
-- models: folder containing all model saved with pickle
+- [data](https://github.com/aprilhong/bankchurn/tree/main/data) : folder containing all data files
+  - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/code/mathchi/churn-problem-for-bank-customer)
+- [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model saved with pickle
+  - **rf_cv_model.pickle**, **xgb_cv_model.pickle** 
+  - **model_results_table.csv** : summary table of scoring metrics from all models
   - 
--    
+- [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : dependencies to run notebook
+  
 # Structure
 
 1. Project Overview
