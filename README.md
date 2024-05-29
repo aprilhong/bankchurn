@@ -1,4 +1,8 @@
-# Project: European Bank Churn Predictions with XGBoost Model as final selection
+# Business Case: European Bank Churn Predictions with XGBoost Machine Learning Model 
+
+------ A project overview should be a few sentences long stating the problem you solved, what data was used in the project, and your modeling results.
+
+The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. If a customer churns, it means they left the bank and took their business elsewhere. If you can predict which customers are likely to churn, you can take measures to retain them before they do.
 
 ###  File Descriptions
 <details>
@@ -26,14 +30,7 @@
 </details>
   
 # Executive Summary
- 
-## Project Overview  
-The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth.
 
------- A project overview should be a few sentences long stating the problem you solved, what data was used in the project, and your modeling results.
-
-## Business Objective
-If a customer churns, it means they left the bank and took their business elsewhere. If you can predict which customers are likely to churn, you can take measures to retain them before they do.
 ## 1. Exploratory Data Analysis
 Explain what data you used in your analysis, the timeframe of the data, and any data limitations. This is also a good section to add visualizations of your exploratory data analysis.
   1. Data Discovery
