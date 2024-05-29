@@ -34,12 +34,22 @@ The high rate of customers leaving banks (churn rate) suggests deficiencies in s
 
 ## Business Objective
 If a customer churns, it means they left the bank and took their business elsewhere. If you can predict which customers are likely to churn, you can take measures to retain them before they do.
-## Exploratory Data Analysis
+## 1. Exploratory Data Analysis
 Explain what data you used in your analysis, the timeframe of the data, and any data limitations. This is also a good section to add visualizations of your exploratory data analysis.
-## Feature Engineering
-
-## Modeling and Evaluation
+  1. Data Discovery
+  2. Data Cleaning
+  3. Variable Analysis and Visualizations
+## 2. Feature Engineering
+  1. Feature Transformation
+## 3. Modeling and Evaluation
 This section should detail what models you used and the corresponding evaluation metrics.
+  1. Evaluation Metric
+  2. Model 1: Decision Tree (quick summaries and link to notebook)
+  3. Model 2: Random Forest (quick summaries and link to notebook)
+  4. Model 3: XGBoost (expand)
+  5. Best Model
+  6. Results
+     
 ## Conclusion
 In the conclusion section explain the recommendations you have in solving the business problem and highlight any future steps you will take to expand on your project,
 
