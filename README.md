@@ -8,7 +8,7 @@
     - **rf_cv_model.pickle**, **xgb_cv_model.pickle** 
     - **model_results_table.csv** : summary table of scoring metrics from all models
     - **xgb_decision_tree.png** : decision tree output from xgb prediction.
-  - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : dependencies to run notebook
+  - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
 </details>
   
 # Structure
