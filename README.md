@@ -1,8 +1,13 @@
 # Business Case: European Bank Churn Predictions with XGBoost Machine Learning Model 
 
------- A project overview should be a few sentences long stating the problem you solved, what data was used in the project, and your modeling results.
+
+Problem solved
 
 The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. If a customer churns, it means they left the bank and took their business elsewhere. If you can predict which customers are likely to churn, you can take measures to retain them before they do.
+
+data used
+
+modeling results
 
 ###  File Descriptions
 <details>
@@ -15,18 +20,6 @@ The high rate of customers leaving banks (churn rate) suggests deficiencies in s
     - **model_results_table.csv** : summary table of scoring metrics from all models
     - **xgb_decision_tree.png** : decision tree output from xgb prediction.
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
-</details>
-  
-### Structure
-<details>
-<summary>Expand/Collapse</summary>
-  
-  1. Project Overview
-  2. EDA 
-  3. Feature Engineering
-  4. Model Building
-  5. Model Selection
-  6. Results & Recommendations
 </details>
   
 # Executive Summary
