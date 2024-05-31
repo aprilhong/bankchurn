@@ -1,11 +1,8 @@
 # Business Case: European Bank Churn Predictions with XGBoost Machine Learning Model 
 
+The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. 
 
-Problem solved
-
-The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. If a customer churns, it means they left the bank and took their business elsewhere. If you can predict which customers are likely to churn, you can take measures to retain them before they do.
-
-data used
+Data used is 
 
 modeling results
 
@@ -14,7 +11,7 @@ modeling results
 <summary>Expand/Collapse</summary>
 
   - [data](https://github.com/aprilhong/bankchurn/tree/main/data) : folder containing all data files
-    - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/code/mathchi/churn-problem-for-bank-customer)
+    - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
   - [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model files
     - **tree_cv_model.pickle, rf_cv_model.pickle**, **xgb_cv_model.pickle** 
     - **model_results_table.csv** : summary table of scoring metrics from all models
