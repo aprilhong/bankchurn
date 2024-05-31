@@ -5,6 +5,8 @@ The high rate of customers leaving banks (churn rate) suggests deficiencies in s
 Data used is 
 
 modeling results
+T
+Data was trained on 3 models (tuned decision tree, random forest and xgboost) 
 
 ###  File Descriptions
 <details>
