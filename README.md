@@ -35,6 +35,10 @@ This section should detail what models you used and the corresponding evaluation
 ### Evaluation Metric
 For our model prediction, the 2 possibles for bad predictions are a false positive and false negative. A false positive is when the model predicts a customer will churn but they did not and a false negative occurs when the model predicts customer will NOT churn but they do. Since the cost of predicting a false negative is higher than that of a false positive, recall would be a good metric to consider. However, using recall only can result in a bias model predicting a majority of customers would churn. In other words, the bank could be offering promotions/discounts to more customers than needed. On the other hand, the f1 score is harmonic mean between recall and precision and would be the best metric to use for our model predictions. 
 
+### Modeling Approach
+Reponse vairable is categorical Classifcation models 
+evalutae 3 models and choose best one to fit the test data 
+
 ### Model 1: Decision Tree (quick summaries and link to notebook)
 
 ### Model 2: Random Forest (quick summaries and link to notebook)
