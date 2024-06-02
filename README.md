@@ -19,6 +19,7 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
     - **model_results_table.csv** : summary table of scoring metrics from all models
     - **xgb_decision_tree.png** : decision tree output from xgb prediction.
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
+  - **results_table** : module to create a table from model's evaluation metrics.
 </details>
   
 # Executive Summary
