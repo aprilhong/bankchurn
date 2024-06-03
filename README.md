@@ -254,8 +254,32 @@ To understand the reasons behind the lower churn rates in year 1 and year 10, it
 
 
 ## Feature Engineering
-  1. Feature Transformation
-  2. Feature Selection
+
+### Feature Transformation
+The Geography feature needs to be encoded first.
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/93b42fb3-8276-4b8d-af36-ce501b9b9be5)
+
+
+### Correlation Matrix
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/60c640c0-53af-4fb8-8065-2a35905b17f8" width="600" >
+
+Positive Correlations
+- 0.37: Geography_Germany & Balance
+- 0.32: Exited & Age
+- 0.17: Exited & Geography_Germany
+- 0.11: Exited & Balance
+
+Negative Correlations
+- -0.32: NumofProducts & Balance
+- -0.16: Exited & IsActiveMember
+- -0.13: Exited & NumOfProducts
+- -0.10: Exited & Geography_France
+
+### Features Selected
+- Target: Exited
+- Predictive: Age, CreditScore, HasCrCard, IsActiveMember, Geography_Germany, Geography_France, Geography_Spain, Balance, NumOfProducts, EstimatedSalary,
+
 ## Modeling and Evaluation
 The objective is to build a model that predict whether a customer is likely to churn. This will be done by training various classification models, including decision tree, random forest, and xgboost, on our existing data. The model with the best performance, measured by F1 score, will be chosen as the winner. This winning model will then be used to predict churn on new, unseen data.
 
@@ -280,7 +304,7 @@ Both the X and y variables are separated and the data is split 75% for training 
 ### Model 1 Decision Tree 
 The decision tree model serves as the baseline to compare the performance of more complex models like random forest and xgboost. The F1 score of the decision tree becomes a baseline that the other models need to surpass to be considered an improvement.
 
-#### The evaluation scores for the baseline model are as follows
+#### The scores for the baseline model are as follows
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/4d759b33-aa62-4e1f-b631-418e22d67506" width="500" >
 
@@ -301,19 +325,87 @@ The decision tree model serves as the baseline to compare the performance of mor
 #### Feature Importance
 When building the decision tree, the algorithm considers all features and chooses the one that results in the biggest decrease in Gini impurity after splitting the data. This decrease in impurity reflects how well that feature separates the data into classes relevant to the target variable (Exited).
 
-<img src=https://github.com/aprilhong/bankchurn/assets/78663820/1c920e88-e27c-4c89-8d1c-f3e818136af0" width="400" >
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/1c920e88-e27c-4c89-8d1c-f3e818136af0" width="500" >
 
-The top 3 features based on gini impurity are Age, Estimated Salary, and Balance. 
+The top 3 features based on gini impurity are **Age, Estimated Salary, and Balance**. 
 - Age is responsible for 22% of overall reduction of gini impurity in the model
 - EstimatedSalary is responsible for 17% of overall reduction of gini impurity in the model
 - Balance is responsible for 17% of overall reduction of gini impurity in the model
 
+#### Baseline Model Evaluation Score
+An F1 score of **0.475** is considered **poor** in machine learning classification tasks, hence, the next task is to tune the decision tree.
+
+### Tuned Decision Tree
+After fitting the training data to the GridSearch CV object, the best parameters were 
+- max_depth: 10,
+- min_samples_lea: 15
+- min_samples_split: 2
+
+#### Tuned Decision Tree Model Evaluation Score
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/8e6f36f4-5f3a-4fd5-b97b-1daf20ad3933" width="500" >
+
+Tuning the decision tree increased F1 from 47% to 56%. Which is an improvement but still not great. Let's consider the random forest model next.
+
 ### Model 2 Random Forest 
-(quick summaries and link to notebook)
+This model builds multiple decision trees and aggregates their predictions, often leading to better performance and reduced overfitting compared to a single decision tree.
+
+After fitting the training data to the GridSearch CV object, the best parameters were 
+- max_depth: None
+- max_features: 4
+- min_samples_leaf: 3
+- min_samples_split: 2
+- n_estimators: 150
+
+#### Model Evaluation Score
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/c6d9525c-a936-4b69-9df6-e34003418ce5" width="500" >
+
+The random forest model obtained an F1 score of 0.605, which is the highest thus far. But maybe we can do better, let's check out XGBoost.
+
+
 ### Model 3 XGBoost 
-(expand)
+XGBoost is another powerful gradient boosting algorithm that might be effective for churn prediction. It can handle complex data relationships and potentially improve F1 score.
+
+After fitting the training data to the GridSearch CV object, the best parameters were 
+-learning_rate: 0.2
+- max_depth: 6
+- min_child_weight: 2
+- n_estimators: 125
+
+#### Model Evaluation Score
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/56443e97-1ddc-4384-82ed-746602b5b8c7" width="500" >
+
+The F1 score of 0.606 from this model is only a minimal improvement to the 0.605 from the random forest model. 
+
 ### Champion Model
-### Results
+Out of the 3 models **XGBoost** has the highest F1 score; therefore, it will be our champion model to predict on the test data.
+
+#### Use XGBoost Classifer to predict on the test data
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/1f0cfad8-ffa3-47da-9f57-3c723cd8f5d9" width="400">
+
+
+
+#### Confusion Matrix
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/c955c377-3b2e-4f4f-8cf8-8f4493e3ac48" width="350">
+
+- Of the 2500 test samples, 509 customers left and the model correctly predicted 345 of the customers
+- When the model makes an error, it's typically Type II error giving a false negative, which fails to predict that customer will leave.
+
+#### Feature Importance
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/edda5343-85b4-4701-9523-f4f53da0fe0d" width="400">
+
+From the model, Estimated Salary, CreditScore, Balance, and Age are the the most importance features for predicting customer churn.
+
+#### Results
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/f388a624-60d6-4e25-bb74-11b3d0a976a9" width="500">
+
+- The F1 scores from all models are ranked in descending order and the the XGBoost score on the test data ranks the highest at 0.77
+- An F1 score of 0.77 is considered good in machine learning classification tasks. This indicates that our model is performing well at balancing precision and recall when predicting churn (Exited variable) for the customers.
+- Compared to the previous F1 scores of 0.475 and 0.56, this is a significant improvement. It suggests that tuning the decision tree and exploring other algorithms/features, have been effective.
+
 ## Conclusion
-In the conclusion section explain the recommendations you have in solving the business problem and highlight any future steps you will take to expand on your project,
+In the conclusion section explain the recommendations you have in solving the business problem and highlight any future steps you will take to expand on your project
+
 
