@@ -79,7 +79,11 @@ There are two main types of features:
 ### Dropping features
   - The **CustomerId** and **Surname** variable has sensitive customer data and should be removed to maintain confidentally. 
   - **Gender** should also be removed as it would be discrimatory to offer promotions based on gender.
-  - **RowNumber** can also be removed has it is just a counter. 
+  - **RowNumber** can also be removed has it is just a counter.
+
+Now there are 10 features in the dataframe.
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/b14a1a4b-c1d3-481c-b642-8d083ed23abe)
+
 
 ### Descriptive Statistics
 
@@ -93,11 +97,9 @@ There are two main types of features:
 ### Data Cleaning
 There are **no missing or duplicated** data but there are **outliers** for **Credit Score** and **Age** features. 
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/b959b1e2-51f0-4043-b4e8-136d19859f41)
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/7bfe3a5e-16a0-4390-b3bb-0b7b3b412905)
 
-Calculate number of outliers per feature
-
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/efcf450a-67e6-4be2-814d-2075d5d88047)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/0cc687b9-1058-41e9-96a1-d83767da8563" width="150" >
 
 - There are 15 customers with scores below 383
 - and a sizeable group (359 customers) over the age of 62. 
@@ -107,21 +109,23 @@ Calculate number of outliers per feature
 #### Exited
 Start by checking the class imbalance for Exited since it is a categorical reponse variable.
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/c0ce1751-efc6-40a0-b4fc-a71ba539e619)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/c0ce1751-efc6-40a0-b4fc-a71ba539e619" width="350" >
 
-Out of 10,000 customers, a little over 2,000 (20.37%) have churned. This means that the bank retains a bit less than 80% of its customers.
-
-While a perfect 50-50 split between churning and retained customers is ideal, an 80-20 split is still considered workable for analysis. This suggests that there's a good base of loyal customers to build on and target for further growth.
+- Out of 10,000 customers, a little over 2,000 (20.37%) have churned. This means that the bank retains a bit less than 80% of its customers.
+- While a perfect 50-50 split between churning and retained customers is ideal, an 80-20 split is still considered workable for analysis.
+- This suggests that there's a good base of loyal customers to build on and target for further growth.
 
 #### Age
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/f8a4a70e-b91d-4ba4-b26d-768f5fd38770)
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/d693e2bd-97e4-4650-8ead-9b163d6581d3)
 
 - While 30-40 year olds make up the largest age group,
 - The highest number of exits (around 700) came from the 40-50 age bracket.
 - This suggests a higher churn rate for customers over 40 compared to those under 40.
 
-Let's check the average custoemr balance across the age groups
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/f5a90003-f99d-457c-b7a4-3d6baac47a7b)
+**Let's check the average custoemr balance across the age groups**
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/139d66ca-a226-465a-845a-5607f6aa95ee)
 
 - Customers under 90 who remained had an average balance under $80,000.
 - Conversely, customers under 90 with balances exceeding $90,000 have exited.
@@ -129,13 +133,14 @@ Let's check the average custoemr balance across the age groups
 
 #### Balance
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/086c4fad-ebc3-4df9-8c1e-ad03720b92ff)
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/0a424ca4-a2ce-4bc8-b859-be3626e90b49)
 
 - A significant portion (over 3,500 or 35%) of customers have zero balance.
 - Interestingly, a quarter (around 500) of those with zero balance have exited.
 - Notably, this represents a large portion (around 25%) of all exiting customers (2,037), suggesting a potential link between zero balance and customer churn.
 
-Let's filter out customers with zero balance and plot them against other features.
+**Let's filter out customers with zero balance and plot them against other features.**
+
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/78fe69b1-2881-4e13-acca-526da461f0ac)
 
 Here's a breakdown of the 500 customers who exited with zero balance:
@@ -147,29 +152,55 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 
 #### Active Members
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/e8e870b0-6625-4496-8f5c-0466b22acbf3)
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/dbcaf48f-fe6a-4ceb-adaf-db2d6f5a8244)
 
 - Active customers churn at a rate of 14.3%.
-- Inactive customers churn at a rate of 26.9%. This is 12.6 percentage points higher than the churn rate for active customers. In other words, inactive customers are 12.6% more likely to churn than active customers.
-- 
+- Inactive customers churn at a rate of 26.9%.
+- This is 12.6 percentage points higher than the churn rate for active customers.
+- In other words, inactive customers are 12.6% more likely to churn than active customers.
+
 #### Num Of Products
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/baaa0c25-6f4f-4df8-b56c-ac43cf80f2a5)
 
 - Customers can have up to 4 products 
 - The data shows a clear connection between the number of products a customer holds and their likelihood of churning.
-- Most Common, Most Churn: Over half (50.84%) of customers have only 1 product, and this group also has the highest number of churned customers (1409). This suggests they might not be finding enough value in the single product to justify staying.
-- Sweet Spot: Customers with 2 products (45.9% of the base) have the lowest churn rate (7.6% or 348 customers). This indicates that having a couple of products increases engagement and loyalty.
-- High Risk, High Churn: Customers with 3 or 4 products (a combined 3.26% of the base) have a very high churn rate (82.7% or all churned for 4 products). This suggests these customers might be overwhelmed by too many options or have niche needs not being met.
+- **Most Common, Most Churn:** Over half (50.84%) of customers have only **1 product**, and this group also has the highest number of churned customers (1409). This suggests they might not be finding enough value in the single product to justify staying.
+- **Sweet Spot**: Customers with **2 products** (45.9% of the base) have the lowest churn rate (7.6% or 348 customers). This indicates that having a couple of products increases engagement and loyalty.
+- **High Risk, High Chur**n: Customers with **3 or 4 products** (a combined 3.26% of the base) have a very high churn rate (82.7% or all churned for 4 products). This suggests these customers might be overwhelmed by too many options or have niche needs not being met.
 - These findings suggest that offering the right bundle of products can significantly impact customer retention.
 - It might be beneficial to explore why customers with 3 or 4 products churn and tailor product recommendations for those with only 1 product.
 
 #### Geography 
- - Germany has the highest churn percentage at ~32%, whereas France and Spain are similar around ~16%
-    - In Germany, balance amount for Exited customers averages $120K.
-    - Despite having the most customers, France's average customer balance is just half of Germany's ($60K)
 
- 
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/c0b788d0-49b0-435c-9f0e-47bc29c116f0)
+
+- The customer base comes from three European countries: France, Germany, and Spain. 
+- France holds the majority with 5,014 customers, making up over half of the total.
+- The remaining customers are distributed relatively evenly between Germany (2,509) and Spain (2,477).
+- Germany and France has similar number of customers churns but interestingly, churn rates vary across these regions.
+- Germany has the highest churn rate at 32.4%
+- France and Spain experience churn rates around 16.2% and 16.7% respectively.
+
+**Let's check customer balance for each country to gain additional insight**
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/37421f4f-91bf-4afe-95aa-e9937a90c4e1)
+
+- Customers who churned in France and Spain took an average balance of $71,000 and $73,000, respectively.
+- However, in Germany, churned customers took an average of nearly twice that amount, at $120,000. This suggests that German churned customers are leaving with a significantly higher balance compared to France and Spain.
+- It's also worth noting that Germany has the highest churn rate at 32%, compared to France (16.2%) and Spain (16.7%).
+- This could indicate that Germany is losing a higher proportion of customers with larger balances.
+- Further investigation into the reasons behind churn in Germany might be beneficial to mitigate customer losses and the associated revenue impact.
+
+Let's look at the distribution of customers balance across these countries.
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/6a5b9ecf-e134-487b-a312-fade39acc59a)
+
+- France and Spain: Around half of the customers in these countries maintain zero balances. Among those with balances (likely the more profitable customers),they take an average of $71,000 - $73,000 with them when they churn.
+- Germany: While Germany has a smaller overall customer base, it's customers, either remaining or churned, have much higher average balances of around $120,000. 
+
+- Focus on Germany:  These findings highlight the importance of prioritizing improvements in Germany's customer service or product offerings. By addressing the reasons behind churn in Germany, the bank can potentially retain more high-value customers and mitigate significant revenue losses.
+
 ## Feature Engineering
   1. Feature Transformation
   2. Feature Selection
