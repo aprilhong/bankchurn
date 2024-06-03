@@ -1,4 +1,4 @@
-# <p align="center"> :bank: ANK CUSTOMER CHURN PREDICTIONS :chart:
+# <p align="center"> :bank: BANK CUSTOMER CHURN PREDICTIONS :chart:
   
 # Business Case:  
 The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. 
