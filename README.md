@@ -117,7 +117,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 
 #### Age
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/d693e2bd-97e4-4650-8ead-9b163d6581d3)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/d693e2bd-97e4-4650-8ead-9b163d6581d3" width="350" >
 
 - While 30-40 year olds make up the largest age group,
 - The highest number of exits (around 700) came from the 40-50 age bracket.
@@ -125,7 +125,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 
 **Let's check the average custoemr balance across the age groups**
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/139d66ca-a226-465a-845a-5607f6aa95ee)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/139d66ca-a226-465a-845a-5607f6aa95ee" width="500" >
 
 - Customers under 90 who remained had an average balance under $80,000.
 - Conversely, customers under 90 with balances exceeding $90,000 have exited.
@@ -133,7 +133,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 
 #### Balance
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/0a424ca4-a2ce-4bc8-b859-be3626e90b49)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/0a424ca4-a2ce-4bc8-b859-be3626e90b49" width="500" >
 
 - A significant portion (over 3,500 or 35%) of customers have zero balance.
 - Interestingly, a quarter (around 500) of those with zero balance have exited.
@@ -152,7 +152,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 
 #### Active Members
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/dbcaf48f-fe6a-4ceb-adaf-db2d6f5a8244)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/dbcaf48f-fe6a-4ceb-adaf-db2d6f5a8244" width="350" >
 
 - Active customers churn at a rate of 14.3%.
 - Inactive customers churn at a rate of 26.9%.
@@ -161,7 +161,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 
 #### Num Of Products
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/baaa0c25-6f4f-4df8-b56c-ac43cf80f2a5)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/baaa0c25-6f4f-4df8-b56c-ac43cf80f2a5" width="350" >
 
 - Customers can have up to 4 products 
 - The data shows a clear connection between the number of products a customer holds and their likelihood of churning.
@@ -173,7 +173,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 
 #### Geography 
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/c0b788d0-49b0-435c-9f0e-47bc29c116f0)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/c0b788d0-49b0-435c-9f0e-47bc29c116f0" width="350" >
 
 - The customer base comes from three European countries: France, Germany, and Spain. 
 - France holds the majority with 5,014 customers, making up over half of the total.
@@ -184,7 +184,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 
 **Let's check customer balance for each country to gain additional insight**
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/37421f4f-91bf-4afe-95aa-e9937a90c4e1)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/37421f4f-91bf-4afe-95aa-e9937a90c4e1" width="350" >
 
 - Customers who churned in France and Spain took an average balance of $71,000 and $73,000, respectively.
 - However, in Germany, churned customers took an average of nearly twice that amount, at $120,000. This suggests that German churned customers are leaving with a significantly higher balance compared to France and Spain.
@@ -194,7 +194,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 
 Let's look at the distribution of customers balance across these countries.
 
-![image](https://github.com/aprilhong/bankchurn/assets/78663820/6a5b9ecf-e134-487b-a312-fade39acc59a)
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/6a5b9ecf-e134-487b-a312-fade39acc59a" width="350" >
 
 - France and Spain: Around half of the customers in these countries maintain zero balances. Among those with balances (likely the more profitable customers),they take an average of $71,000 - $73,000 with them when they churn.
 - Germany: While Germany has a smaller overall customer base, it's customers, either remaining or churned, have much higher average balances of around $120,000. 
