@@ -21,7 +21,11 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
 # Executive Summary
 
 ## 1. Exploratory Data Analysis
+
+### Data Discovery
 The dataset is from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers) and stores information for 10,000 bank customers, with each customer represented by a row and 14 features in separate columns. This totals 140,000 data points.
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/691081c9-49de-40b0-ae8e-e051f6b94006)
 
 The information includes:
 - Customer details: A unique ID, Surname, Gender, and Age.
@@ -29,17 +33,27 @@ The information includes:
 - Banking activity: The number of products the customer has (e.g., checking, savings, loans), whether they have a credit card, and their account activity status (active member or not).
 - Outcome: Whether the customer has left the bank (Exited). This is the key piece of information we're trying to understand.
 
-There are two main types of features: numeric and categorical 
+There are two main types of features:
 - 7 numeric features: RowNumber, CustomerId ,CreditScore, Age, Tenure, Balance, EstimatedSalary
 - 7 categorical features: Surname, Gender, Geography, NumOfProducts, HasCrCard, IsActiveMember, Exited.
 
+#### Dropping features
+  - The **CustomerId** and **Surname** variable has sensitive customer data and should be removed to maintain confidentally. 
+  - **Gender** should also be removed as it would be discrimatory to offer promotions based on gender.
+  - **RowNumber** can also be removed has it is just a counter. 
 
-### Data Discovery
+#### Descriptive Statistics
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/50003524-a5cc-4789-a8dd-9818ac75568f)
+- **Credit scores** range widely, from 350 to 850 with an average of 650.
+- The typical customer is around **38 years old**, with ages ranging from 18 to 92.
+- Customers have been with the bank for an average of **5 years (tenure)**.
+- Account **balances** vary greatly, from practically zero up to $250,000.
+- Customers' estimated salaries show a broad range, falling between $11.58 and $199,000.
 
 
+### Variable Analysis and Visualizations
 
-  2. Data Cleaning
-  3. Variable Analysis and Visualizations
 ## 2. Feature Engineering
   1. Feature Transformation
 ## 3. Modeling and Evaluation
