@@ -12,8 +12,13 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
 ## Table of Content
 <details><summary>Expand/Collapse</summary>
 
-1. [File Descriptions](### File Descriptions)
-
+1. [File Descriptions](#file-descriptions)
+2. [Technologies Used](#technologies-used)
+3. [Executive Summary](#executive-summary)
+4. [Feature Engineering](#feature-engineering)
+5. [](#)
+6. [](#)
+7. [](#)
 </details>
 
 ### File Descriptions
@@ -61,12 +66,12 @@ There are two main types of features:
 - 7 numeric features: RowNumber, CustomerId ,CreditScore, Age, Tenure, Balance, EstimatedSalary
 - 7 categorical features: Surname, Gender, Geography, NumOfProducts, HasCrCard, IsActiveMember, Exited.
 
-### 1.2 Dropping features
+### Dropping features
   - The **CustomerId** and **Surname** variable has sensitive customer data and should be removed to maintain confidentally. 
   - **Gender** should also be removed as it would be discrimatory to offer promotions based on gender.
   - **RowNumber** can also be removed has it is just a counter. 
 
-### 1.3 Descriptive Statistics
+### Descriptive Statistics
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/50003524-a5cc-4789-a8dd-9818ac75568f)
 - **Credit scores** range widely, from 350 to 850 with an average of 650.
@@ -75,7 +80,7 @@ There are two main types of features:
 - Account **balances** vary greatly, from practically zero up to $250,000.
 - Customers' estimated salaries show a broad range, falling between $11.58 and $199,000.
 
-### 1.4 Data Cleaning
+### Data Cleaning
 There are **no missing or duplicated** data but there are **outliers** for **Credit Score** and **Age** features. 
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/b959b1e2-51f0-4043-b4e8-136d19859f41)
@@ -89,14 +94,15 @@ Calculate number of outliers per feature
 - There are 359 customers over the age of 62.
 - 
 
-###  2. Variable Analysis and Visualizations
+###  1.2 Variable Analysis and Visualizations
 All variables were analyzed in the notebook and this is a summary of the key findings. 
 
-#### 1.5Exited
+#### Exited
 To 
  
 ## 3.Feature Engineering
   1. Feature Transformation
+  2. Feature Selection
 ## 4. Modeling and Evaluation
 This section should detail what models you used and the corresponding evaluation metrics.
 ### 4.1 Evaluation Metric
