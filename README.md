@@ -15,10 +15,20 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
 1. [File Descriptions](#file-descriptions)
 2. [Technologies Used](#technologies-used)
 3. [Executive Summary](#executive-summary)
-4. [Feature Engineering](#feature-engineering)
-5. [](#)
-6. [](#)
-7. [](#)
+4. [Exploratory Data Analysis](#exploratory-data-analysis)
+    1. [Data Discovery](#data-discovery)
+    2. [Data Cleaning](#data-cleaning)
+    3. [Variable Analysis and Visualization](#variable-analysis-and-visualization)
+6. [Feature Engineering](#feature-engineering)
+7. [Modeling and Evaluation](#modeling-and-evaluation)
+   1. [Modeling Approach](#modeling-approach)
+   3. [Evaluation Metric](#evaluation-metric)
+   4. [Model 1: Decision Tree](#model-1-decision-tree)
+   5. [Model 2: Random Forest](#model-2-random-forest)
+   6. [Model 3: XGBoost](#model-3-xgboost)
+   7. [Champion Model](#champion-model)
+   8. [Evaluation Results](#results)
+9. [Conclusion](#conclusion)
 </details>
 
 ### File Descriptions
@@ -49,9 +59,9 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
 
 # Executive Summary
 
-## 1. Exploratory Data Analysis
+## Exploratory Data Analysis
 
-### 1.1 Data Discovery
+### Data Discovery
 The dataset is from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers) and stores information for 10,000 bank customers, with each customer represented by a row and 14 features in separate columns. This totals 140,000 data points.
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/691081c9-49de-40b0-ae8e-e051f6b94006)
@@ -94,18 +104,22 @@ Calculate number of outliers per feature
 - There are 359 customers over the age of 62.
 - 
 
-###  1.2 Variable Analysis and Visualizations
+### Variable Analysis and Visualization
 All variables were analyzed in the notebook and this is a summary of the key findings. 
 
 #### Exited
 To 
  
-## 3.Feature Engineering
+## Feature Engineering
   1. Feature Transformation
   2. Feature Selection
-## 4. Modeling and Evaluation
+## Modeling and Evaluation
 This section should detail what models you used and the corresponding evaluation metrics.
-### 4.1 Evaluation Metric
+
+### Modeling Approach
+The objective of the model is to predict the categorical **Exited** variable; whether a customer will churn or not. Hence we will be training the data on several classification machine learning models and compare their f1 score to determine the champion model. The champion model will then be used to predict on the test data. 
+
+### Evaluation Metric
 In predicting customer churn, the model can make two types of mistakes:
 
 - **False positive**: The model predicts a customer will leave (churn) but they stay. This might lead to unnecessary efforts to retain the customer.
@@ -114,16 +128,16 @@ Since it's more critical to avoid missing churned customers, focusing on recall 
 
 To strike a balance, the F1 score is a better metric to use. It considers both recall and precision (correctly identifying non-churners), giving a more accurate picture of the model's performance. 
 
-### 4.2 Modeling Approach
-The objective of the model is to predict the categorical **Exited** variable; whether a customer will churn or not. Hence we will be training the data on several classification machine learning models and compare their f1 score to determine the champion model. The champion model will then be used to predict on the test data.  
 
-### 4.3 Model 1: Decision Tree (quick summaries and link to notebook)
+### Model 1 Decision Tree 
+(quick summaries and link to notebook)
 
-### 4.4 Model 2: Random Forest (quick summaries and link to notebook)
-### 4.5 Model 3: XGBoost (expand)
-### 4.6 Best Model
-### 4.7 Results
-     
-## 5. Conclusion
+### Model 2 Random Forest 
+(quick summaries and link to notebook)
+### Model 3 XGBoost 
+(expand)
+### Champion Model
+### Results
+## Conclusion
 In the conclusion section explain the recommendations you have in solving the business problem and highlight any future steps you will take to expand on your project,
 
