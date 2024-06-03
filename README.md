@@ -1,5 +1,6 @@
-# Business Case: European Bank Churn Predictions with XGBoost Machine Learning Model 
-
+# <p align="center"> :bank: EUROPEAN BANK CHURN PREDICTIONS :chart:
+  
+# Business Case:  
 The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. 
 
 Data used is 
@@ -17,6 +18,17 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
     - **xgb_decision_tree.png** : decision tree output from xgb prediction.
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
   - **results_table** : module to create a table from model's evaluation metrics.
+
+### Technologies Used
+
+<detail> <Summary>Expand/Collapse</summary>
+- Python
+- Pandas
+- Numpy
+- Matplotlib
+- Seaborn
+- Scikit-Learn
+</detail>
 
 # Executive Summary
 
