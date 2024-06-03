@@ -10,25 +10,30 @@ T
 Data was trained on 3 models (tuned decision tree, random forest and xgboost) 
 
 ###  File Descriptions
+
+<details><summary>Expand/Collapse</summary>
+  
   - [data](https://github.com/aprilhong/bankchurn/tree/main/data) : folder containing all data files
-    - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
+  - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
   - [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model files
     - **tree_cv_model.pickle, rf_cv_model.pickle**, **xgb_cv_model.pickle** 
     - **model_results_table.csv** : summary table of scoring metrics from all models
     - **xgb_decision_tree.png** : decision tree output from xgb prediction.
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
   - **results_table** : module to create a table from model's evaluation metrics.
+</details>
 
 ### Technologies Used
 
-<detail> <Summary>Expand/Collapse</summary>
+<details> <Summary>Expand/Collapse</summary>
+  
 - Python
 - Pandas
 - Numpy
 - Matplotlib
 - Seaborn
 - Scikit-Learn
-</detail>
+</details>
 
 # Executive Summary
 
@@ -49,12 +54,12 @@ There are two main types of features:
 - 7 numeric features: RowNumber, CustomerId ,CreditScore, Age, Tenure, Balance, EstimatedSalary
 - 7 categorical features: Surname, Gender, Geography, NumOfProducts, HasCrCard, IsActiveMember, Exited.
 
-#### Dropping features
+### Dropping features
   - The **CustomerId** and **Surname** variable has sensitive customer data and should be removed to maintain confidentally. 
   - **Gender** should also be removed as it would be discrimatory to offer promotions based on gender.
   - **RowNumber** can also be removed has it is just a counter. 
 
-#### Descriptive Statistics
+### Descriptive Statistics
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/50003524-a5cc-4789-a8dd-9818ac75568f)
 - **Credit scores** range widely, from 350 to 850 with an average of 650.
@@ -62,6 +67,20 @@ There are two main types of features:
 - Customers have been with the bank for an average of **5 years (tenure)**.
 - Account **balances** vary greatly, from practically zero up to $250,000.
 - Customers' estimated salaries show a broad range, falling between $11.58 and $199,000.
+
+### Data Cleaning
+There are **no missing or duplicated** data but there are **outliers** for **Credit Score** and **Age** features. 
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/b959b1e2-51f0-4043-b4e8-136d19859f41)
+
+Calculate number of outliers per feature
+
+![image](https://github.com/aprilhong/bankchurn/assets/78663820/efcf450a-67e6-4be2-814d-2075d5d88047)
+
+
+- There are 15 customers with credit scores under 383. 
+- There are 359 customers over the age of 62.
+
 
 
 ### Variable Analysis and Visualizations
