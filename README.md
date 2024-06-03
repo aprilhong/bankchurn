@@ -201,6 +201,72 @@ Let's look at the distribution of customers balance across these countries.
 
 - Focus on Germany:  These findings highlight the importance of prioritizing improvements in Germany's customer service or product offerings. By addressing the reasons behind churn in Germany, the bank can potentially retain more high-value customers and mitigate significant revenue losses.
 
+#### Credit Score
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/7931e0c7-70bb-4b00-a601-e4911aa1e41a" width="500" >
+
+- Credit scores appear to follow a bell-shaped curve, which suggests a relatively normal distribution. The average score sits around 651.
+- It's interesting to note that over 200 customers have achieved the perfect score of 850.
+
+According to FICO, the credit score rating as categorized as follows
+- Very poor: 300 to 579
+- Fair: 580 to 669
+- Good: 670 to 739
+- Very good: 740 to 799
+- Excellent: 800 to 850
+
+Hence, I've created a new feature called **CreditRating** to better visualize the credit score. distribution 
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/8f0117e0-128f-4acc-a2cf-09c1f42824e5" width="400" >
+
+- The highest number of churned customers falls within the "Fair" credit rating category, with approximately 2646 customers.
+- Customers with "Very Poor" credit scores also show a significant churn rate, with roughly 520 customers leaving the company.
+- The number of churned customers drops for customers with higher credit ratings
+- Very Good has around 252 churned customers.
+- Excellent has the lowest churn with approximately 128 customers leaving.
+
+The churn rate calculated for each rating group are as follows
+- Very Poor: 22.0%
+- Fair: 20.6%
+- Good: 18.6%
+- Very Good: 20.6%
+- Excellent: 19.5%
+
+- Surprisingly, credit rating does not have a clear correlation with churn rate.
+- Although, customers with a Fair credit rating churned the most, it's 20.6% churn rate is very close to all those for other ratings.
+- Even the highest credit rating, Excellent, has a churn rate of 19.5%.
+- This suggests that customers with good credit scores are just as likely to churn as those with poor credit scores.
+
+#### Has a Card Card
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/48276029-8458-44f0-9c7a-346b2f28e0a1" width="350" >
+
+- The data reveals a surprising finding about customer churn ("Exited") in relation to credit card ownership.
+- Although the number of customers with credit cards churned is more than double those without cards, both groups have very similar churn rates.
+- Among 7,055 customers who have a credit card, 1,424 churned, resulting in a churn rate of approximately 20.2%.
+- Similarly, for 2,495 customers who don't have a credit card, 613 churned, representing a churn rate of around 20.8%.
+- It's unexpected that credit card ownership doesn't have a clearer impact on churn.
+- While the churn rates are slightly different, the difference is minimal.
+
+#### Estimated Salary
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/06d08ef2-52d0-4d98-a927-6c40f4323e1a" width="500" >
+
+- The salary range seems to be evenly spread across the customer base ("uniform distribution"). This means there aren't any specific salary brackets with a higher concentration of customers.
+- Regardless of salary range, approximately 25% of customers churn (around 250 customers). This suggests that churn might be driven by factors other than salary.
+
+#### Tenure
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/1f458da6-5503-4fe3-bb66-4915d9f1e532" width="500" >
+
+- Tenure seems to be evenly distributed across the customer base ("uniform distribution"). Interestingly, the number of customer churns stays relatively consistent at around 200 people every year, except for the first and tenth years.
+- Unlike other years, both year 1 and year 10 have a lower churn rate, with only around 100 customers churning in each of these years.
+
+To understand the reasons behind the lower churn rates in year 1 and year 10, it would be beneficial to:
+- Year 1 Retention: Investigate what the bank might be doing well to retain customers in the first year. It could be strong onboarding processes, competitive introductory offers, or meeting the initial needs of new customers effectively.
+- Year 10 Loyalty: Explore why customers reach a decade with the bank and why they churn at a lower rate then. Possible explanations include established loyalty programs, inertia (less likely to switch after a long tenure), or the bank effectively catering to the needs of long-term customers.
+
+
 ## Feature Engineering
   1. Feature Transformation
   2. Feature Selection
