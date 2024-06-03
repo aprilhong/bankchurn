@@ -257,10 +257,7 @@ To understand the reasons behind the lower churn rates in year 1 and year 10, it
   1. Feature Transformation
   2. Feature Selection
 ## Modeling and Evaluation
-This section should detail what models you used and the corresponding evaluation metrics.
-
-### Modeling Approach
-The objective of the model is to predict the categorical **Exited** variable; whether a customer will churn or not. Hence we will be training the data on several classification machine learning models and compare their f1 score to determine the champion model. The champion model will then be used to predict on the test data. 
+The objective is to build a model that predict whether a customer is likely to churn. This will be done by training various classification models, including decision tree, random forest, and xgboost, on our existing data. The model with the best performance, measured by F1 score, will be chosen as the winner. This winning model will then be used to predict churn on new, unseen data.
 
 ### Evaluation Metric
 In predicting customer churn, the model can make two types of mistakes:
@@ -269,11 +266,47 @@ In predicting customer churn, the model can make two types of mistakes:
 - **False negative**: The model predicts a customer will stay but they end up leaving. This can be more costly, as the bank misses the chance to intervene.
 Since it's more critical to avoid missing churned customers, focusing on recall (catching churners) seems ideal. However, prioritizing recall alone could lead the model to mistakenly predict churn for many customers who wouldn't actually leave. This would result in the bank wasting resources on unnecessary customer retention efforts.
 
-To strike a balance, the F1 score is a better metric to use. It considers both recall and precision (correctly identifying non-churners), giving a more accurate picture of the model's performance. 
+To strike a balance, the **F1 score** is a better metric to use. It considers both recall and precision (correctly identifying non-churners), giving a more accurate picture of the model's performance. 
 
+
+
+### Split Data into training and testing dataset
+Note on outliers: Since the models used are variations of the decision tree algorithms which is able to handle outliers easily. The outliers will not be removed from the dataset. 
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/5ffb5a79-621b-432e-af94-d728d5233487" width="600" >
+
+Both the X and y variables are separated and the data is split 75% for training and 25% for testing. To maintain the class imbalance in the training and testing datasets, stratify was set equal to y. A random state of 38 was selected for reproducibiliy purposes. 
 
 ### Model 1 Decision Tree 
-(quick summaries and link to notebook)
+The decision tree model serves as the baseline to compare the performance of more complex models like random forest and xgboost. The F1 score of the decision tree becomes a baseline that the other models need to surpass to be considered an improvement.
+
+#### The evaluation scores for the baseline model are as follows
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/4d759b33-aa62-4e1f-b631-418e22d67506" width="500" >
+
+- Precision: Of all positive predictions, 46.7% prediction are true positive.
+- Recall: Of all real positive cases, 48.3% are predicted positive.
+- **F1 Score**: the test set's harmonic mean is **47.5%**
+- Accuracy: Of all cases in test set, 78.3% are predicted true positive or true negative.
+
+#### Confusion Matrix
+
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/4e053853-cdde-436b-9fd0-9f651d81ae24" width="350" >
+
+- True Positives of (246): These are the customers the model correctly identified as churning (Exited = 1). 
+- False Negatives (263): These are the customers the model incorrectly classified as not churning (Exited = 0) but actually churned.
+- True Negatives (1711): These are the customers the model correctly identified as not churning (Exited = 0)
+- False Positives (280): These are the customers the model incorrectly classified as churning (Exited = 1) but did not churn.
+
+#### Feature Importance
+When building the decision tree, the algorithm considers all features and chooses the one that results in the biggest decrease in Gini impurity after splitting the data. This decrease in impurity reflects how well that feature separates the data into classes relevant to the target variable (Exited).
+
+<img src=https://github.com/aprilhong/bankchurn/assets/78663820/1c920e88-e27c-4c89-8d1c-f3e818136af0" width="400" >
+
+The top 3 features based on gini impurity are Age, Estimated Salary, and Balance. 
+- Age is responsible for 22% of overall reduction of gini impurity in the model
+- EstimatedSalary is responsible for 17% of overall reduction of gini impurity in the model
+- Balance is responsible for 17% of overall reduction of gini impurity in the model
 
 ### Model 2 Random Forest 
 (quick summaries and link to notebook)
