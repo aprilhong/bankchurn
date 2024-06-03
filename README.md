@@ -34,7 +34,13 @@ Explain what data you used in your analysis, the timeframe of the data, and any 
 ## 3. Modeling and Evaluation
 This section should detail what models you used and the corresponding evaluation metrics.
 ### Evaluation Metric
-For our model prediction, the 2 possibles for bad predictions are a false positive and false negative. A false positive is when the model predicts a customer will churn but they did not and a false negative occurs when the model predicts customer will NOT churn but they do. Since the cost of predicting a false negative is higher than that of a false positive, recall would be a good metric to consider. However, using recall only can result in a bias model predicting a majority of customers would churn. In other words, the bank could be offering promotions/discounts to more customers than needed. On the other hand, the f1 score is harmonic mean between recall and precision and would be the best metric to use for our model predictions. 
+In predicting customer churn, the model can make two types of mistakes:
+
+- **False positive**: The model predicts a customer will leave (churn) but they stay. This might lead to unnecessary efforts to retain the customer.
+- **False negative**: The model predicts a customer will stay but they end up leaving. This can be more costly, as the bank misses the chance to intervene.
+Since it's more critical to avoid missing churned customers, focusing on recall (catching churners) seems ideal. However, prioritizing recall alone could lead the model to mistakenly predict churn for many customers who wouldn't actually leave. This would result in the bank wasting resources on unnecessary customer retention efforts.
+
+To strike a balance, the F1 score is a better metric to use. It considers both recall and precision (correctly identifying non-churners), giving a more accurate picture of the model's performance. 
 
 ### Modeling Approach
 The objective of the model is to predict the categorical **Exited** variable; whether a customer will churn or not. Hence we will be training the data on several classification machine learning models and compare their f1 score to determine the champion model. The champion model will then be used to predict on the test data.  
