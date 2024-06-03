@@ -9,9 +9,6 @@ T
 Data was trained on 3 models (tuned decision tree, random forest and xgboost) 
 
 ###  File Descriptions
-<details>
-<summary>Expand/Collapse</summary>
-
   - [data](https://github.com/aprilhong/bankchurn/tree/main/data) : folder containing all data files
     - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
   - [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model files
@@ -20,13 +17,27 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
     - **xgb_decision_tree.png** : decision tree output from xgb prediction.
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
   - **results_table** : module to create a table from model's evaluation metrics.
-</details>
-  
+
 # Executive Summary
 
 ## 1. Exploratory Data Analysis
-Explain what data you used in your analysis, the timeframe of the data, and any data limitations. This is also a good section to add visualizations of your exploratory data analysis.
-  1. Data Discovery
+The dataset is from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers) and stores information for 10,000 bank customers, with each customer represented by a row and 14 features in separate columns. This totals 140,000 data points.
+
+The information includes:
+- Customer details: A unique ID, Surname, Gender, and Age.
+- Account details: A unique Row Number, Credit Score, Account Balance, and Estimated Salary.
+- Banking activity: The number of products the customer has (e.g., checking, savings, loans), whether they have a credit card, and their account activity status (active member or not).
+- Outcome: Whether the customer has left the bank (Exited). This is the key piece of information we're trying to understand.
+
+There are two main types of features: numeric and categorical 
+- 7 numeric features: RowNumber, CustomerId ,CreditScore, Age, Tenure, Balance, EstimatedSalary
+- 7 categorical features: Surname, Gender, Geography, NumOfProducts, HasCrCard, IsActiveMember, Exited.
+
+
+### Data Discovery
+
+
+
   2. Data Cleaning
   3. Variable Analysis and Visualizations
 ## 2. Feature Engineering
