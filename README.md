@@ -1,13 +1,8 @@
-# <p align="center"> :bank: EUROPEAN BANK CHURN PREDICTIONS :chart:
+# <p align="center"> :bank: ANK CUSTOMER CHURN PREDICTIONS :chart:
   
 # Business Case:  
 The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. 
 
-Data used is 
-
-modeling results
-T
-Data was trained on 3 models (tuned decision tree, random forest and xgboost) 
 
 ### Table of Content
 <details><summary>Expand/Collapse</summary>
@@ -61,7 +56,6 @@ Data was trained on 3 models (tuned decision tree, random forest and xgboost)
 
 ## Exploratory Data Analysis
 
-### Data Discovery
 The dataset is from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers) and stores information for 10,000 bank customers, with each customer represented by a row and 14 features in separate columns. This totals 140,000 data points.
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/691081c9-49de-40b0-ae8e-e051f6b94006)
@@ -72,11 +66,11 @@ The information includes:
 - Banking activity: The number of products the customer has (e.g., checking, savings, loans), whether they have a credit card, and their account activity status (active member or not).
 - Outcome: Whether the customer has left the bank (Exited). This is the key piece of information we're trying to understand.
 
-There are two main types of features:
+There are two main types of features: numeric and categorical
 - 7 numeric features: RowNumber, CustomerId ,CreditScore, Age, Tenure, Balance, EstimatedSalary
 - 7 categorical features: Surname, Gender, Geography, NumOfProducts, HasCrCard, IsActiveMember, Exited.
 
-### Dropping features
+#### Dropping features
   - The **CustomerId** and **Surname** variable has sensitive customer data and should be removed to maintain confidentally. 
   - **Gender** should also be removed as it would be discrimatory to offer promotions based on gender.
   - **RowNumber** can also be removed has it is just a counter.
@@ -85,7 +79,7 @@ Now there are 10 features in the dataframe.
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/b14a1a4b-c1d3-481c-b642-8d083ed23abe)
 
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/50003524-a5cc-4789-a8dd-9818ac75568f)
 - **Credit scores** range widely, from 350 to 850 with an average of 650.
@@ -94,7 +88,7 @@ Now there are 10 features in the dataframe.
 - Account **balances** vary greatly, from practically zero up to $250,000.
 - Customers' estimated salaries show a broad range, falling between $11.58 and $199,000.
 
-### Data Cleaning
+#### Data Cleaning
 There are **no missing or duplicated** data but there are **outliers** for **Credit Score** and **Age** features. 
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/7bfe3a5e-16a0-4390-b3bb-0b7b3b412905)
@@ -106,7 +100,7 @@ There are **no missing or duplicated** data but there are **outliers** for **Cre
 
 ### Variable Analysis and Visualization
 
-#### Exited
+#### `Exited`
 Start by checking the class imbalance for Exited since it is a categorical reponse variable.
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/c0ce1751-efc6-40a0-b4fc-a71ba539e619" width="350" >
@@ -115,7 +109,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 - While a perfect 50-50 split between churning and retained customers is ideal, an 80-20 split is still considered workable for analysis.
 - This suggests that there's a good base of loyal customers to build on and target for further growth.
 
-#### Age
+#### `Age`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/d693e2bd-97e4-4650-8ead-9b163d6581d3" width="350" >
 
@@ -123,7 +117,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 - The highest number of exits (around 700) came from the 40-50 age bracket.
 - This suggests a higher churn rate for customers over 40 compared to those under 40.
 
-**Let's check the average custoemr balance across the age groups**
+Let's check the average customer balance across the age groups
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/139d66ca-a226-465a-845a-5607f6aa95ee" width="500" >
 
@@ -131,7 +125,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 - Conversely, customers under 90 with balances exceeding $90,000 have exited.
 - Do benefits decrease after reaching $90,000 in accumulated balance?
 
-#### Balance
+#### `Balance`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/0a424ca4-a2ce-4bc8-b859-be3626e90b49" width="500" >
 
@@ -139,7 +133,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 - Interestingly, a quarter (around 500) of those with zero balance have exited.
 - Notably, this represents a large portion (around 25%) of all exiting customers (2,037), suggesting a potential link between zero balance and customer churn.
 
-**Let's filter out customers with zero balance and plot them against other features.**
+Let's filter out customers with zero balance and plot them against other features.
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/78fe69b1-2881-4e13-acca-526da461f0ac)
 
@@ -150,7 +144,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 - Credit Card Users: More than 60% (more than 300) had a credit card. This doesn't necessarily explain their exit, but it could be a factor to consider.
 - Inactive Accounts: Over 60% (more than 300) were not actively using their account. This inactivity could be a reason for the account closure or a sign of dissatisfaction.
 
-#### Active Members
+#### `Active Members`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/dbcaf48f-fe6a-4ceb-adaf-db2d6f5a8244" width="350" >
 
@@ -159,7 +153,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 - This is 12.6 percentage points higher than the churn rate for active customers.
 - In other words, inactive customers are 12.6% more likely to churn than active customers.
 
-#### Num Of Products
+#### `Number Of Products`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/baaa0c25-6f4f-4df8-b56c-ac43cf80f2a5" width="350" >
 
@@ -171,7 +165,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 - These findings suggest that offering the right bundle of products can significantly impact customer retention.
 - It might be beneficial to explore why customers with 3 or 4 products churn and tailor product recommendations for those with only 1 product.
 
-#### Geography 
+#### `Geography`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/c0b788d0-49b0-435c-9f0e-47bc29c116f0" width="350" >
 
@@ -182,7 +176,7 @@ Here's a breakdown of the 500 customers who exited with zero balance:
 - Germany has the highest churn rate at 32.4%
 - France and Spain experience churn rates around 16.2% and 16.7% respectively.
 
-**Let's check customer balance for each country to gain additional insight**
+Let's check customer balance for each country to gain additional insight
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/37421f4f-91bf-4afe-95aa-e9937a90c4e1" width="350" >
 
@@ -201,12 +195,7 @@ Let's look at the distribution of customers balance across these countries.
 
 - Focus on Germany:  These findings highlight the importance of prioritizing improvements in Germany's customer service or product offerings. By addressing the reasons behind churn in Germany, the bank can potentially retain more high-value customers and mitigate significant revenue losses.
 
-#### Credit Score
-
-<img src="https://github.com/aprilhong/bankchurn/assets/78663820/7931e0c7-70bb-4b00-a601-e4911aa1e41a" width="500" >
-
-- Credit scores appear to follow a bell-shaped curve, which suggests a relatively normal distribution. The average score sits around 651.
-- It's interesting to note that over 200 customers have achieved the perfect score of 850.
+#### `Credit Score`
 
 According to FICO, the credit score rating as categorized as follows
 - Very poor: 300 to 579
@@ -215,7 +204,7 @@ According to FICO, the credit score rating as categorized as follows
 - Very good: 740 to 799
 - Excellent: 800 to 850
 
-Hence, I've created a new feature called **CreditRating** to better visualize the credit score. distribution 
+Hence, I've created a new feature `CreditRating` by grouping the scores to better visualize the data.
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/8f0117e0-128f-4acc-a2cf-09c1f42824e5" width="400" >
 
@@ -237,7 +226,7 @@ The churn rate calculated for each rating group are as follows
 - Even the highest credit rating, Excellent, has a churn rate of 19.5%.
 - This suggests that customers with good credit scores are just as likely to churn as those with poor credit scores.
 
-#### Has a Card Card
+#### `Credit Card`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/48276029-8458-44f0-9c7a-346b2f28e0a1" width="350" >
 
@@ -248,14 +237,14 @@ The churn rate calculated for each rating group are as follows
 - It's unexpected that credit card ownership doesn't have a clearer impact on churn.
 - While the churn rates are slightly different, the difference is minimal.
 
-#### Estimated Salary
+#### `Estimated Salary`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/06d08ef2-52d0-4d98-a927-6c40f4323e1a" width="500" >
 
 - The salary range seems to be evenly spread across the customer base ("uniform distribution"). This means there aren't any specific salary brackets with a higher concentration of customers.
 - Regardless of salary range, approximately 25% of customers churn (around 250 customers). This suggests that churn might be driven by factors other than salary.
 
-#### Tenure
+#### `Tenure`
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/1f458da6-5503-4fe3-bb66-4915d9f1e532" width="500" >
 
