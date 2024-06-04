@@ -1,8 +1,28 @@
 # <p align="center"> :bank: BANK CUSTOMER CHURN PREDICTIONS :chart:
   
 # Business Case:  
-The high rate of customers leaving banks (churn rate) suggests deficiencies in several areas, including customer experience, operational efficiency, and the competitiveness of products and features. This necessitates a focus on understanding and managing customer churn to improve overall customer satisfaction and achieve sustainable growth. 
 
+**Problem**:  A high customer churn rate indicates weaknesses in customer experience, operational efficiency, and product competitiveness. This leads to lost revenue and hinders sustainable growth.
+
+**Solution**: Develop a customer churn prediction model to proactively identify customers at risk of leaving.
+
+**Methodology**:
+
+1. Exploratory Data Analysis to reveal insights:
+    - Higher churn rate for customers over 40
+    - Inactive customers are 12.6% more likely to churn than active customers.
+    - Customers with 2 products have the lowest churn rate
+    - Germany has the highest churn rate at 32%, compared to France (16.2%) and Spain (16.7%).
+2. Train various classification models (decision tree, random forest, XGBoost) on historical customer data.
+3. Evaluate model performance using the F1 score, which balances identifying true churners (recall) and avoiding false positives.
+4. Implement the XGBoost model on test data yielded good F1 score, (0.77) indicating a strong balance between precision and recall. 
+
+**Recommendations**: 
+- Conduct a deeper analysis of churn in Germany, particularly among high-balance customers, to identify and address specific reasons for their departure.
+- Investigate the 25% of churned customers with zero balance. Understand why they weren't actively using our services and develop strategies to re-engage them.
+- Focus on the most important features, like income, credit score, account balance, and age, might reveal additional insights to enhance the model's performance.
+
+**Conclusion**: Investing in a customer churn prediction model empowers data-driven decision making, leading to improved customer retention, enhanced customer experience, and ultimately, sustainable business growth.
 
 ### Table of Content
 <details><summary>Expand/Collapse</summary>
@@ -15,14 +35,14 @@ The high rate of customers leaving banks (churn rate) suggests deficiencies in s
        - [Variable Analysis and Visualization](#variable-analysis-and-visualization)
     2. [Feature Engineering](#feature-engineering)
     3. [Modeling and Evaluation](#modeling-and-evaluation)
-       - [Modeling Approach](#modeling-approach)
        - [Evaluation Metric](#evaluation-metric)
        - [Model 1: Decision Tree](#model-1-decision-tree)
        - [Model 2: Random Forest](#model-2-random-forest)
        - [Model 3: XGBoost](#model-3-xgboost)
        - [Champion Model](#champion-model)
-       - [Evaluation Results](#results)
-    4. [Conclusion](#conclusion)
+    4. [Evaluation](#evaluation)
+       - [Reccomendations](#recommendations)
+   
 </details>
 
 ### File Descriptions
@@ -34,9 +54,10 @@ The high rate of customers leaving banks (churn rate) suggests deficiencies in s
   - [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model files
     - **tree_cv_model.pickle, rf_cv_model.pickle**, **xgb_cv_model.pickle** 
     - **model_results_table.csv** : summary table of scoring metrics from all models
-    - **xgb_decision_tree.png** : decision tree output from xgb prediction.
+    - **xgb_decision_tree.png** : decision tree output from xgb prediction on test data. 
+  - [bankchurn.ipynb](https://github.com/aprilhong/bankchurn/blob/main/bankchurn.ipynb) - notebook will full analysis
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
-  - **results_table** : module to create a table from model's evaluation metrics.
+  - [results_table.py](https://github.com/aprilhong/bankchurn/blob/main/results_table.py) : module to create a table from model's evaluation metrics.
 </details>
 
 ### Technologies Used
@@ -110,7 +131,7 @@ Start by checking the class imbalance for Exited since it is a categorical repon
 
 #### `Age`
 
-<img src="https://github.com/aprilhong/bankchurn/assets/78663820/d693e2bd-97e4-4650-8ead-9b163d6581d3" width="350" >
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/d693e2bd-97e4-4650-8ead-9b163d6581d3" width="400" >
 
 - While **30-40 year olds** make up the largest age group,
 - The highest number of exits (around 700) came from the **40-50 age** bracket.
@@ -386,7 +407,6 @@ Out of the 3 models **XGBoost** has the highest F1 score; therefore, it will be 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/1f0cfad8-ffa3-47da-9f57-3c723cd8f5d9" width="400">
 
 
-
 #### Confusion Matrix
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/c955c377-3b2e-4f4f-8cf8-8f4493e3ac48" width="350">
 
@@ -398,14 +418,25 @@ Out of the 3 models **XGBoost** has the highest F1 score; therefore, it will be 
 
 From the model, Estimated Salary, CreditScore, Balance, and Age are the the most importance features for predicting customer churn.
 
-#### Results
-<img src="https://github.com/aprilhong/bankchurn/assets/78663820/f388a624-60d6-4e25-bb74-11b3d0a976a9" width="500">
+### Evaluation
+<img src="https://github.com/aprilhong/bankchurn/assets/78663820/f388a624-60d6-4e25-bb74-11b3d0a976a9" width="400">
 
 - The F1 scores from all models are ranked in descending order and the the XGBoost score on the test data ranks the highest at 0.77
 - An F1 score of 0.77 is considered good in machine learning classification tasks. This indicates that our model is performing well at balancing precision and recall when predicting churn (Exited variable) for the customers.
 - Compared to the previous F1 scores of 0.475 and 0.56, this is a significant improvement. It suggests that tuning the decision tree and exploring other algorithms/features, have been effective.
 
-## Conclusion
-In the conclusion section explain the recommendations you have in solving the business problem and highlight any future steps you will take to expand on your project
+#### Recommendations
+
+From the data analysis, Germany is losing a higher proportion of customers with larger balances. Further investigation into the reasons behind churn in Germany might be beneficial to mitigate customer losses and the associated revenue impact.
+
+A quarter of lost customers had no account balance, suggesting they might not have been actively using our services. The bank can explore following actions. 
+  - Bundled Packages: Create package deals that offer multiple products at a discounted rate, encouraging them to explore different services.
+  - Re-Engagement Campaigns: Reach out to inactive accounts with targeted email or mobile notifications. Offer incentives for re-activation, like account bonuses or discounts on financial products.
+  - Identify Reasons for Inactivity: Conduct surveys or polls to understand why accounts become inactive. This can help address underlying issues and improve overall customer experience.
+  - Targeted Onboarding: Millennials value personalization. Develop onboarding experiences that cater to their age group's needs. Offer financial literacy resources, budgeting tools, and goal-setting features to show immediate value.
+
+### Future Improvements
+
+We built a model using most features. To potentially improve its F1 score, we can try simplifying it by removing less important features. We can also explore creating new features from the existing ones, like combining income and age into a financial maturity score. Focusing on the most important features, like income, credit score, account balance, and age, might reveal additional insights to enhance the model's performance.
 
 
