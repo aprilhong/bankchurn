@@ -34,7 +34,7 @@
        - [Data Cleaning](#data-cleaning)
        - [Variable Analysis and Visualization](#variable-analysis-and-visualization)
     2. [Feature Engineering](#feature-engineering)
-    3. [Modeling and Evaluation](#modeling-and-evaluation)
+    3. [Modeling](#modeling)
        - [Evaluation Metric](#evaluation-metric)
        - [Model 1: Decision Tree](#model-1-decision-tree)
        - [Model 2: Random Forest](#model-2-random-forest)
@@ -74,8 +74,9 @@
 
 # Executive Summary
 
+  
 ## Exploratory Data Analysis
-
+<details><summary>Expand/Collapse</summary>
 The dataset is from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers) and stores information for 10,000 bank customers, with each customer represented by a row and 14 features in separate columns. This totals 140,000 data points.
 
 ![image](https://github.com/aprilhong/bankchurn/assets/78663820/691081c9-49de-40b0-ae8e-e051f6b94006)
@@ -300,8 +301,11 @@ Negative Correlations
 ### Features Selected
 - Target: Exited
 - Predictive: Age, CreditScore, HasCrCard, IsActiveMember, Geography_Germany, Geography_France, Geography_Spain, Balance, NumOfProducts, EstimatedSalary,
+</details>
 
-## Modeling and Evaluation
+## Modeling
+<details><summary>Expand/Collapse</summary>
+
 The objective is to build a model that predict whether a customer is likely to churn. This will be done by training various classification models, including decision tree, random forest, and xgboost, on our existing data. The model with the best performance, measured by F1 score, will be chosen as the winner. This winning model will then be used to predict churn on new, unseen data.
 
 ### Evaluation Metric
@@ -417,8 +421,10 @@ Out of the 3 models **XGBoost** has the highest F1 score; therefore, it will be 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/edda5343-85b4-4701-9523-f4f53da0fe0d" width="400">
 
 From the model, Estimated Salary, CreditScore, Balance, and Age are the the most importance features for predicting customer churn.
+</details>
 
-### Evaluation
+## Evaluation
+<details><summary>Expand/Collapse</summary>
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/f388a624-60d6-4e25-bb74-11b3d0a976a9" width="400">
 
 - The F1 scores from all models are ranked in descending order and the the XGBoost score on the test data ranks the highest at 0.77
@@ -438,5 +444,6 @@ A quarter of lost customers had no account balance, suggesting they might not ha
 ### Future Improvements
 
 We built a model using most features. To potentially improve its F1 score, we can try simplifying it by removing less important features. We can also explore creating new features from the existing ones, like combining income and age into a financial maturity score. Focusing on the most important features, like income, credit score, account balance, and age, might reveal additional insights to enhance the model's performance.
+</details>
 
 
