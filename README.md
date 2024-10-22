@@ -1,30 +1,57 @@
-# <p align="center"> :bank: Predicting Customer Churn at UK Bank:chart:
-  
+# <p align="center"> UK Bank Customer Churn Prediction
+<p align="center">
+  <img src="image.jpg", width="350">
+
 ## Problem Statement
 Banks face a significant challenge in retaining customers, as customer churn can lead to substantial financial losses and hinder business growth. Identifying customers at risk of churning is crucial for banks to implement proactive retention strategies and maintain customer loyalty. Churn can result in lost revenue, increased acquisition costs, damaged reputation, reduced market share, and operational inefficiencies.
 
 ## Objective
-To develop a robust machine learning model capable of accurately predicting customer churn within a banking context. This model will serve as a valuable tool for marketing analysts to identify at-risk customers, enabling them to design targeted retention campaigns and optimize marketing budgets for maximum impact.
+Investigate data to discover patterns and develop a robust machine learning model capable of accurately predicting customer churn. This model will serve as a valuable tool for marketing analysts to identify at-risk customers, enabling them to design targeted retention campaigns and optimize marketing budgets for maximum impact.
 
-**Methodology**:
+## Methodology
 
-1. Exploratory Data Analysis to reveal insights:
+### Data Source: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
+
+### Data Preprocessing
+
+### Modeling Techniques
+
+
+### Evaluation Metrics
+
+
+2
+
+## Results and Insights
+
+Key Findings:
     - Higher churn rate for customers over 40
     - Inactive customers are 12.6% more likely to churn than active customers.
     - Customers with 2 products have the lowest churn rate
     - Germany has the highest churn rate at 32%, compared to France (16.2%) and Spain (16.7%).
-2. Train various classification models (decision tree, random forest, XGBoost) on historical customer data.
-3. Evaluate model performance using the F1 score, which balances identifying true churners (recall) and avoiding false positives.
-4. Implement the XGBoost model on test data yielded good F1 score, (0.77) indicating a strong balance between precision and recall. 
+      Train various classification models (decision tree, random forest, XGBoost) on historical customer data.
 
-**Recommendations**: 
+      
+3. Evaluate model performance using the F1 score, which balances identifying true churners (recall) and avoiding false positives.
+4. Implement the XGBoost model on test data yielded good F1 score, (0.77) indicating a strong balance between precision and recall.
+
+
+
+# Recommendations
 - Conduct a deeper analysis of churn in Germany, particularly among high-balance customers, to identify and address specific reasons for their departure.
 - Investigate the 25% of churned customers with zero balance. Understand why they weren't actively using our services and develop strategies to re-engage them.
 - Focus on the most important features, like income, credit score, account balance, and age, might reveal additional insights to enhance the model's performance.
 
-**Conclusion**: Investing in a customer churn prediction model empowers data-driven decision making, leading to improved customer retention, enhanced customer experience, and ultimately, sustainable business growth.
 
-### Table of Content
+## Technologies Used
+
+- Programming languages: Python 
+- Libraries and frameworks: Pandas, Numpy, Matplotlib, Seaborn, Scikit-Learn 
+- Cloud platforms: 
+
+
+
+### Project Structure
 <details><summary>Expand/Collapse</summary>
 
 1. [File Descriptions](#file-descriptions)
@@ -60,17 +87,7 @@ To develop a robust machine learning model capable of accurately predicting cust
   - [results_table.py](https://github.com/aprilhong/bankchurn/blob/main/results_table.py) : module to create a table from model's evaluation metrics.
 </details>
 
-### Technologies Used
 
-<details> <Summary>Expand/Collapse</summary>
-  
-- Python
-- Pandas
-- Numpy
-- Matplotlib
-- Seaborn
-- Scikit-Learn
-</details>
 
 # Executive Summary
 
