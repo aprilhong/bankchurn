@@ -1,10 +1,10 @@
-# <p align="center"> :bank: BANK CUSTOMER CHURN PREDICTIONS :chart:
+# <p align="center"> :bank: Predicting Customer Churn at UK Bank:chart:
   
-# Business Case:  
+## Problem Statement
+Banks face a significant challenge in retaining customers, as customer churn can lead to substantial financial losses and hinder business growth. Identifying customers at risk of churning is crucial for banks to implement proactive retention strategies and maintain customer loyalty. Churn can result in lost revenue, increased acquisition costs, damaged reputation, reduced market share, and operational inefficiencies.
 
-**Problem**:  A high customer churn rate indicates weaknesses in customer experience, operational efficiency, and product competitiveness. This leads to lost revenue and hinders sustainable growth.
-
-**Solution**: Develop a customer churn prediction model to proactively identify customers at risk of leaving.
+## Objective
+To develop a robust machine learning model capable of accurately predicting customer churn within a banking context. This model will serve as a valuable tool for marketing analysts to identify at-risk customers, enabling them to design targeted retention campaigns and optimize marketing budgets for maximum impact.
 
 **Methodology**:
 
