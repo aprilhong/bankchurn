@@ -25,7 +25,7 @@ There are two main types of features: numeric and categorical
 
 ### Exploratory Data Analysis
 
-Data cleaning and exploratory data analysis can be viewED in this [notebook](/notebooks/1.0_bank_exploratory_data_analysis.ipynb)
+Data cleaning and exploratory data analysis can be viewed in this [notebook](/notebooks/1.0_bank_exploratory_data_analysis.ipynb)
 
 Seee visualizations from the exploratory data analysis [here](https://public.tableau.com/views/Customer_Churn_Dashboard_17296929312660/DASHBOARD?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
@@ -33,6 +33,8 @@ Seee visualizations from the exploratory data analysis [here](https://public.tab
 
 ### Modeling Techniques
 The objective is to build a model that predict whether a customer is likely to churn by training various classification models, including decision tree, random forest, and xgboost, on the training data. The model with the best performance will be chosen as the winner. This winning model will then be used to predict churn on new, unseen data.
+
+Check out this [notebook](notebooks/2.0_bank_model_training_and_evaluation.ipynb) for the modeling training and evaluation training.
 
 ### Evaluation Metric
 In predicting customer churn, the model can make two types of mistakes:
@@ -52,6 +54,7 @@ To strike a balance, the **F1 score** is a better metric to use. It considers bo
 
 The F1 scores from all models are ranked in descending order and the the XGBoost score on the test data ranks the highest at 0.77, indicating a strong balance between precision and recall. Compared to the F1 scores of 0.56 and 0.61, this is a significant improvement. It suggests that tuning the decision tree and exploring other algorithms/features, have been effective.
 
+Check out this [notebook](notebooks/2.0_bank_model_training_and_evaluation.ipynb) for the modeling training and evaluation training.
 ###  Key Insights: 
 
 Of 10,000 bank customers, 2037 customers left leading to total of $185M loss in balance. Key insights were discovered from the following features.
@@ -94,11 +97,15 @@ The model was built using most features. To potentially improve its F1 score, we
 
 ## Directory
   - [data](https://github.com/aprilhong/bankchurn/tree/main/data) : folder containing all data files
-  - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
+    - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
+    - **df_cleaned**: file saved from eda notebook.
   - [models](https://github.com/aprilhong/bankchurn/tree/main/models) : folder containing all model files
     - **tree_cv_model.pickle, rf_cv_model.pickle**, **xgb_cv_model.pickle** 
     - **model_results_table.csv** : summary table of scoring metrics from all models
-    - **xgb_decision_tree.png** : decision tree output from xgb prediction on test data. 
+    - **xgb_decision_tree.png** : decision tree output from xgb prediction on test data.
+  - [notebooks](/notebooks)
+    - [1.0_bank_exploratory_data_analysis.ipynb](notebooks/1.0_bank_exploratory_data_analysis.ipynb)
+    - [2.0_bank_model_training_and_evaluation.ipynb](notebooks\2.0_bank_model_training_and_evaluation.ipynb)
   - [bankchurn.ipynb](https://github.com/aprilhong/bankchurn/blob/main/bankchurn.ipynb) - notebook will full analysis
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
   - [results_table.py](https://github.com/aprilhong/bankchurn/blob/main/results_table.py) : module to create a table from model's evaluation metrics.
