@@ -14,6 +14,7 @@ Investigate data to discover patterns and develop a robust machine learning mode
 
 ## Methodology
 
+
 ### Data Source
 This customer churn dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers) contains information for 10K bank customers with 14 features describing their demographics, account details, banking activity and churn status, making it directly relevant for predicting customer churn.
 
@@ -33,8 +34,6 @@ There are two main types of features: numeric and categorical
   - 
 The new shape after dropping these features are (10000,10). 
 
-
-#### Feature Engineering ##########################
 
 ### Modeling Techniques
 The objective is to build a model that predict whether a customer is likely to churn by training various classification models, including decision tree, random forest, and xgboost, on the training data. The model with the best performance will be chosen as the winner. This winning model will then be used to predict churn on new, unseen data.
@@ -56,11 +55,16 @@ To strike a balance, the **F1 score** is a better metric to use. It considers bo
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/f388a624-60d6-4e25-bb74-11b3d0a976a9" width="400">
 The F1 scores from all models are ranked in descending order and the the XGBoost score on the test data ranks the highest at 0.77, indicating a strong balance between precision and recall. Compared to the F1 scores of 0.56 and 0.61, this is a significant improvement. It suggests that tuning the decision tree and exploring other algorithms/features, have been effective.
 
-### Key Insights: #######################
-- Higher churn rate for customers over 40
-- Inactive customers are 12.6% more likely to churn than active customers.
-- Customers with 2 products have the lowest churn rate
-- Germany has the highest churn rate at 32%, compared to France (16.2%) and Spain (16.7%).
+# Key Insights: 
+Of 10,000 bank customers, 2037 customers churn leading to total of $185M loss in balance. 
+- Age: 60% ($111M) are due to customers between 40-60 age bracket, which average churn rate of 40%
+- Geography: Customers who churned in Germany had significantly higher average balances ($120,000) compared to France ($71,000) and Spain ($73,000). Germany also has the highest churn rate (32%), suggesting that a higher proportion of customers with larger balances are leaving the company in Germany, potentially impacting revenue.
+- Tenure: Customers under 70 are more likely to churn within the first five years of service.
+- Number of Products: Customers with a single product have the highest churn rate (50.84%), while those with two products have the lowest churn rate (45.9%). Almost all customers with 3 or more products have churned. 
+- Active Members: Inactive customers have a significantly higher churn rate (26.9%) compared to active customers (14.3%). 
+
+View Interactive dashboard for more details [here](https://public.tableau.com/views/Customer_Churn_Dashboard_17296929312660/DASHBOARD?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+<img src="dashboard.jpg", width="800"></img>
 
 
 # Recommendations
