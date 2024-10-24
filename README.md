@@ -53,6 +53,7 @@ To strike a balance, the **F1 score** is a better metric to use. It considers bo
 ### Model Results: 
 
 <img src="https://github.com/aprilhong/bankchurn/assets/78663820/f388a624-60d6-4e25-bb74-11b3d0a976a9" width="400">
+
 The F1 scores from all models are ranked in descending order and the the XGBoost score on the test data ranks the highest at 0.77, indicating a strong balance between precision and recall. Compared to the F1 scores of 0.56 and 0.61, this is a significant improvement. It suggests that tuning the decision tree and exploring other algorithms/features, have been effective.
 
 # Key Insights: 
@@ -64,7 +65,8 @@ Of 10,000 bank customers, 2037 customers churn leading to total of $185M loss in
 - Active Members: Inactive customers have a significantly higher churn rate (26.9%) compared to active customers (14.3%). 
 
 View Interactive dashboard for more details [here](https://public.tableau.com/views/Customer_Churn_Dashboard_17296929312660/DASHBOARD?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-<img src="dashboard.jpg", width="800"></img>
+
+<img src="dashboard.JPG" width="800">
 
 
 # Recommendations
