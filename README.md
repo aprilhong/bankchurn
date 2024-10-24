@@ -70,7 +70,7 @@ View Interactive dashboard for more details [here](https://public.tableau.com/vi
 
 # RECOMMENDATIONS
 
-## For Marketing Analyst
+### For Marketing Analyst
 From the data analysis, Germany is losing a higher proportion of customers with larger balances. Further investigation into the reasons behind churn in Germany might be beneficial to mitigate customer losses and the associated revenue impact.
 
 A quarter of lost customers had no account balance, suggesting they might not have been actively using our services. The bank can explore following actions. 
@@ -83,7 +83,7 @@ A quarter of lost customers had no account balance, suggesting they might not ha
 - Promote Product Bundling: Encourage customers to adopt multiple products to increase their value to the bank.
 - Geographic Segmentation: Develop tailored strategies for different regions, especially Germany.
 
-## For Model Improvements
+### For Model Improvements
 The model was built using most features. To potentially improve its F1 score, we can try simplifying it by removing less important features. We can also explore creating new features from the existing ones, like combining income and age into a financial maturity score. Focusing on the most important features, like income, credit score, account balance, and age, might reveal additional insights to enhance the model's performance.
 
 
@@ -95,7 +95,7 @@ The model was built using most features. To potentially improve its F1 score, we
 
 # Project Structure
 
-## Directory
+### Directory
   - [data](https://github.com/aprilhong/bankchurn/tree/main/data) : folder containing all data files
     - **churn_data.csv**: raw dataset from [Kaggle](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers)
     - **df_cleaned**: file saved from eda notebook.
