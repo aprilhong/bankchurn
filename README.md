@@ -105,7 +105,7 @@ The model was built using most features. To potentially improve its F1 score, we
     - **xgb_decision_tree.png** : decision tree output from xgb prediction on test data.
   - [notebooks](/notebooks)
     - [1.0_bank_exploratory_data_analysis.ipynb](notebooks/1.0_bank_exploratory_data_analysis.ipynb)
-    - [2.0_bank_model_training_and_evaluation.ipynb](notebooks\2.0_bank_model_training_and_evaluation.ipynb)
+    - [2.0_bank_model_training_and_evaluation.ipynb](notebooks/2.0_bank_model_training_and_evaluation.ipynb)
   - [bankchurn.ipynb](https://github.com/aprilhong/bankchurn/blob/main/bankchurn.ipynb) - notebook will full analysis
   - [requirements.txt](https://github.com/aprilhong/bankchurn/blob/main/requirements.txt) : set up to install all listed packages in the development environment
   - [results_table.py](https://github.com/aprilhong/bankchurn/blob/main/results_table.py) : module to create a table from model's evaluation metrics.
