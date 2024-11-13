@@ -27,7 +27,7 @@ There are two main types of features: numeric and categorical
 
 Data cleaning and exploratory data analysis can be viewed in this [notebook](/notebooks/1.0_bank_exploratory_data_analysis.ipynb)
 
-Seee visualizations from the exploratory data analysis [here](https://public.tableau.com/views/Customer_Churn_Dashboard_17296929312660/DASHBOARD?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+See visualizations from the exploratory data analysis [here](https://public.tableau.com/views/Customer_Churn_Dashboard_17296929312660/DASHBOARD?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 <img src="dashboard.JPG" width="800">
 
